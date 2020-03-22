@@ -144,7 +144,7 @@ if exists("g:project_build_script")
     nnoremap <Leader>n :cnext<CR>
 endif
 
-" :help deoplete-options
+" :help deoplete-contents
 set completeopt=menu,menuone,noselect
 set pumheight=20
 let g:deoplete#enable_at_startup = 1
