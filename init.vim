@@ -151,7 +151,7 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete_popup', 'manual')
 call deoplete#custom#option('min_pattern_length', 0)
 inoremap <expr> <C-n> g:deoplete#complete()
-call deoplete#custom#option('sources', { 'c': ['clangx'], 'cpp': ['clangx'], 'python': ['jedi'], '_': ['buffer']} )
+call deoplete#custom#option('sources', { 'c': ['clangx'], 'cpp': ['clangx'], 'python': ['jedi', 'buffer'], '_': ['buffer']} )
 let clang_options = []
 if exists('g:project_include_dir')
     for include_dir in g:project_include_dir
