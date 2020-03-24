@@ -168,7 +168,4 @@ nnoremap <Leader>t :call Launch('test/main', [], '/', [])<CR>
 nnoremap <Leader>y :call StepOver()<CR>
 nnoremap <Leader>u :call Kill()<CR>
 nnoremap <Leader>i :call ToggleBreakpoint()<CR>
-function! Log(value)
-    echom a:value
-endfunction
 
