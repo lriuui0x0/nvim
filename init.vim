@@ -151,6 +151,7 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete_popup', 'manual')
 call deoplete#custom#option('min_pattern_length', 0)
 inoremap <expr> <C-n> g:deoplete#complete()
+inoremap <expr> <C-p> g:deoplete#complete()
 call deoplete#custom#option('sources', { 'c': ['clangx'], 'cpp': ['clangx'], 'python': ['jedi', 'buffer'], '_': ['buffer']} )
 let clang_options = []
 if exists('g:project_include_dir')
@@ -166,6 +167,7 @@ let g:deoplete#sources#jedi#show_docstring = 1
 nnoremap <Leader>t :call Launch('test/main', [], '/', [])<CR>
 nnoremap <Leader>y :call StepOver()<CR>
 nnoremap <Leader>u :call Kill()<CR>
+nnoremap <Leader>i :call ToggleBreakpoint()<CR>
 function! Log(value)
     echom a:value
 endfunction
