@@ -1,10 +1,11 @@
 command! Vimrc :e $MYVIMRC
-command! Source :source $MYVIMRC
+command! Source :source %
 
 call plug#begin(stdpath("data") . "/plugged")
 Plug 'dracula/vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
@@ -75,8 +76,6 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 " Swap window
 nnoremap <A-r> <C-w>r
-" Close all other window
-nnoremap <A-o> <C-w>o
 
 " :help NERDTree
 " Toggle nerdtree and refresh
@@ -101,6 +100,22 @@ tnoremap <C-e> <C-\><C-n>
 
 " :help easymotion
 nmap <Leader>/ <Plug>(easymotion-bd-w)
+
+" :help vim-multiple-cursors
+" Explicitly define key mappings to prevent some key mapping collisions
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_word_key = '<C-n>'
+let g:multi_cursor_next_key = '<C-n>'
+let g:multi_cursor_prev_key = '<C-p>'
+let g:multi_cursor_skip_key = '<C-x>'
+let g:multi_cursor_quit_key = '<Esc>'
+
+" Explicitly define key mappings to prevent some key mapping collisions
+let g:AutoPairsShortcutToggle = ''
+let g:AutoPairsShortcutFastWrap = ''
+let g:AutoPairsShortcutJump = ''
+" Do not insert two spaces after an opening bracket
+let g:AutoPairsMapSpace = 0
 
 " :help ctrlp
 let g:ctrlp_map = '<Leader>p'
@@ -164,8 +179,15 @@ call deoplete#custom#var('clangx', 'default_c_options', clang_options)
 call deoplete#custom#var('clangx', 'default_cpp_options', clang_options)
 let g:deoplete#sources#jedi#show_docstring = 1
 
-nnoremap <Leader>t :call Launch('test/main', [], '/', [])<CR>
-nnoremap <Leader>y :call StepOver()<CR>
-nnoremap <Leader>u :call Kill()<CR>
-nnoremap <Leader>i :call ToggleBreakpoint()<CR>
+nnoremap <A-q> :call ToggleDebugger()<CR>
+nnoremap <A-x> :call Launch()<CR>
+nnoremap <A-z> :call Kill()<CR>
+nnoremap <A-c> :call Resume()<CR>
+nnoremap <A-v> :call Stop()<CR>
+nnoremap <A-b> :call ToggleBreakpoint()<CR>
+nnoremap <A-n> :call StepOver()<CR>
+nnoremap <A-m> :call StepInto()<CR>
+nnoremap <A-,> :call StepOut()<CR>
+nnoremap <A-i> :call StackWindow_NextThread()<CR>')
+nnoremap <A-u> :call StackWindow_PrevThread()<CR>')
 
