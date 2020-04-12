@@ -19,8 +19,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ncm2/float-preview.nvim'
 Plug 'vim-scripts/CursorLineCurrentWindow'
 Plug 'sheerun/vim-polyglot'
-
-Plug '~/vim-lldb'
+Plug '~/vim-lldb', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Load project specific vimrc
@@ -114,8 +113,6 @@ let g:multi_cursor_quit_key = '<Esc>'
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutFastWrap = ''
 let g:AutoPairsShortcutJump = ''
-" Do not insert two spaces after an opening bracket
-let g:AutoPairsMapSpace = 0
 
 " :help ctrlp
 let g:ctrlp_map = '<Leader>p'
@@ -179,15 +176,13 @@ call deoplete#custom#var('clangx', 'default_c_options', clang_options)
 call deoplete#custom#var('clangx', 'default_cpp_options', clang_options)
 let g:deoplete#sources#jedi#show_docstring = 1
 
-nnoremap <A-q> :call ToggleDebugger()<CR>
-nnoremap <A-x> :call Launch()<CR>
-nnoremap <A-z> :call Kill()<CR>
-nnoremap <A-c> :call Resume()<CR>
-nnoremap <A-v> :call Stop()<CR>
-nnoremap <A-b> :call ToggleBreakpoint()<CR>
-nnoremap <A-n> :call StepOver()<CR>
-nnoremap <A-m> :call StepInto()<CR>
-nnoremap <A-,> :call StepOut()<CR>
-nnoremap <A-i> :call StackWindow_NextThread()<CR>')
-nnoremap <A-u> :call StackWindow_PrevThread()<CR>')
+nnoremap <A-q> :call VimLLDB_ToggleDebugger()<CR>
+nnoremap <A-x> :call VimLLDB_Launch()<CR>
+nnoremap <A-z> :call VimLLDB_Kill()<CR>
+nnoremap <A-c> :call VimLLDB_Resume()<CR>
+nnoremap <A-v> :call VimLLDB_Stop()<CR>
+nnoremap <A-b> :call VimLLDB_ToggleBreakpoint()<CR>
+nnoremap <A-n> :call VimLLDB_StepOver()<CR>
+nnoremap <A-m> :call VimLLDB_StepInto()<CR>
+nnoremap <A-,> :call VimLLDB_StepOut()<CR>
 
