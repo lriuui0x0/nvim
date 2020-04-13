@@ -180,7 +180,7 @@ nnoremap <A-q> :call VimLLDB_ToggleDebugger()<CR>
 nnoremap <A-x> :call VimLLDB_Launch()<CR>
 nnoremap <A-z> :call VimLLDB_Kill()<CR>
 nnoremap <A-c> :call VimLLDB_Resume()<CR>
-nnoremap <A-v> :call VimLLDB_Stop()<CR>
+nnoremap <A-v> :call VimLLDB_Pause()<CR>
 nnoremap <A-b> :call VimLLDB_ToggleBreakpoint()<CR>
 nnoremap <A-n> :call VimLLDB_StepOver()<CR>
 nnoremap <A-m> :call VimLLDB_StepInto()<CR>
