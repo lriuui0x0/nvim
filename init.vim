@@ -19,7 +19,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ncm2/float-preview.nvim'
 Plug 'vim-scripts/CursorLineCurrentWindow'
 Plug 'sheerun/vim-polyglot'
-Plug '~/vim-lldb', { 'do': ':UpdateRemotePlugins' }
+Plug 'lriuui0x0/vim-lldb', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Load project specific vimrc
