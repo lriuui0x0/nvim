@@ -119,7 +119,7 @@ let g:ctrlp_map = '<Leader>p'
 " Force searching files under cwd
 let g:ctrlp_working_path_mode = ''
 " List all files ignoring .git and files in .gitignore
-let g:ctrlp_user_command = "if git rev-parse --git-dir &> /dev/null ; for file in (git ls-files --recurse-submodules --cached) ; if test -f $file ; echo $file ; end ; end ; else ; find %s -type f ; end"
+let g:ctrlp_user_command = "if git rev-parse --git-dir &> /dev/null ; for file in (git ls-files --exclude-standard --cached --others) ; if test -f $file ; echo $file ; end ; end ; else ; find %s -type f ; end"
 " Refresh files on open
 function! CtrlpRefresh()
     CtrlPClearCache
