@@ -13,13 +13,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-clangx'
-Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ncm2/float-preview.nvim'
 Plug 'vim-scripts/CursorLineCurrentWindow'
 Plug 'sheerun/vim-polyglot'
-Plug 'lriuui0x0/vim-lldb', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Load project specific vimrc
@@ -155,34 +151,4 @@ if exists("g:project_build_script")
     nnoremap <Leader>b :call Build()<CR>
     nnoremap <Leader>n :cnext<CR>
 endif
-
-" :help deoplete-contents
-set completeopt=menu,menuone,noselect
-set pumheight=20
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete_popup', 'manual')
-call deoplete#custom#option('min_pattern_length', 0)
-inoremap <expr> <C-n> g:deoplete#complete()
-inoremap <expr> <C-p> g:deoplete#complete()
-call deoplete#custom#option('sources', { 'c': ['clangx'], 'cpp': ['clangx'], 'python': ['jedi', 'buffer'], '_': ['buffer']} )
-let clang_options = []
-if exists('g:project_include_dir')
-    for include_dir in g:project_include_dir
-        call add(clang_options, '-I'.include_dir)
-    endfor
-endif
-call deoplete#custom#var('clangx', 'clang_binary', trim(system('which clang')))
-call deoplete#custom#var('clangx', 'default_c_options', clang_options)
-call deoplete#custom#var('clangx', 'default_cpp_options', clang_options)
-let g:deoplete#sources#jedi#show_docstring = 1
-
-nnoremap <A-q> :call VimLLDB_ToggleDebugger()<CR>
-nnoremap <A-x> :call VimLLDB_Launch()<CR>
-nnoremap <A-z> :call VimLLDB_Kill()<CR>
-nnoremap <A-c> :call VimLLDB_Resume()<CR>
-nnoremap <A-v> :call VimLLDB_Pause()<CR>
-nnoremap <A-b> :call VimLLDB_ToggleBreakpoint()<CR>
-nnoremap <A-n> :call VimLLDB_StepOver()<CR>
-nnoremap <A-m> :call VimLLDB_StepInto()<CR>
-nnoremap <A-,> :call VimLLDB_StepOut()<CR>
 
