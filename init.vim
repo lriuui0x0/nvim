@@ -43,6 +43,8 @@ syntax enable
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vimsyn_embed = 'P'
+set completeopt=menu,menuone,noselect
+set pumheight=20
 
 set smartcase
 let mapleader = '\'
